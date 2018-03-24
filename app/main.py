@@ -9,7 +9,7 @@ def hello():
 
 @app.route("/resume")
 def resume():
-    return "Hello this is the resume page"
+    return "Hello this is the resume page yea"
 
 
 if __name__ == "__main__":
