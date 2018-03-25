@@ -2,8 +2,7 @@ FROM tiangolo/uwsgi-nginx-flask:python3.6
 COPY ./www.ian-brennan.com.conf /etc/nginx/conf.d
 COPY ./app /app
 WORKDIR /static
-    apt-get update && \
-    apt-get -y install sudo
+RUN apt-get update && apt-get -y install sudo
 RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && sudo apt-get install -y nodejs
 RUN sudo apt-get install -y software-properties-common && add-apt-repository ppa:certbot/certbot && apt-get update && apt-get install -y python-cerbot-nginx && sudo certbot --nginx -d ian-brennan.com -d www.ian-brennan.com
 COPY ./static/package.json /static/package.json
