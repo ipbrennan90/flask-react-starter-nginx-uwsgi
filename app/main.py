@@ -2,11 +2,13 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello():
-    return "Hello World from Flask in a uWSGI Nginx Docker container with \
-     Python"
+app = Flask(__name__, static_folder="../static/dist", template_folder="../static")
 
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+    
 @app.route("/resume")
 def resume():
     return "Hello this is the resume page yea"

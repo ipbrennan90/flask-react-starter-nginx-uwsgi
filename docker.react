@@ -1,12 +1,7 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6
 
-COPY ./portfolio.conf /etc/nginx/conf.d
-COPY ./app /app
+FROM node:latest
 
 WORKDIR /app
-RUN apt-get update && \
-    apt-get -y install sudo
-RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && sudo apt-get install -y nodejs
 COPY ./static/package.json /app/static/package.json
 WORKDIR /app/static
 RUN npm install
