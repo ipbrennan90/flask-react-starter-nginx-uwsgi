@@ -14,5 +14,4 @@ COPY ./static/assets /static/assets
 COPY ./static/index.html /static/index.html
 RUN npm run build
 WORKDIR /app
-RUN docker-compose build && docker-compose up -d
 
