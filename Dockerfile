@@ -16,5 +16,4 @@ COPY ./static/webpack.config.js /app/static/webpack.config.js
 COPY ./static/.babelrc /app/static/.babelrc
 COPY ./static/assets /app/static/assets
 COPY ./static/index.html /app/static/index.html
-
-CMD ["npm", "run",  "build"]
+RUN npm run build
