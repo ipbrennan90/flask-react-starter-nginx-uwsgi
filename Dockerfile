@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -y install sudo
 RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && sudo apt-get install -y nodejs
 RUN apt-get install -y --only-upgrade python && apt-get install -y python-pip
 RUN sudo apt-get install build-essential libssl-dev libffi-dev python-dev && pip install certbot-nginx
-RUN sudo /etc/init.d/nginx -g daemon off;
+RUN sudo nginx -g daemon off; && /etc/init.d/nginx start
 RUN sudo certbot --non-interactive --email ian.brennan@icloud.com --agree-tos --nginx -d ian-brennan.com -d www.ian-brennan.com
 COPY ./static/package.json /static/package.json
 RUN npm install --only=production
