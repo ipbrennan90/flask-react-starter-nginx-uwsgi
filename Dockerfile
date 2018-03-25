@@ -6,7 +6,6 @@ RUN apt-get update && apt-get -y install sudo
 RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && sudo apt-get install -y nodejs
 RUN apt-get install -y --only-upgrade python && apt-get install -y python-pip
 RUN sudo apt-get install build-essential libssl-dev libffi-dev python-dev && pip install certbot-nginx
-RUN nohup /etc/init.d/nginx start & sudo certbot --non-interactive --email ian.brennan@icloud.com --agree-tos --nginx -d ian-brennan.com -d www.ian-brennan.com
 COPY ./static/package.json /static/package.json
 RUN npm install --only=production
 COPY ./static/.env /static/.env
@@ -17,3 +16,6 @@ COPY ./static/assets /static/assets
 COPY ./static/index.html /static/index.html
 RUN npm run build
 WORKDIR /app
+RUN docker-compose build && docker-compose up -d
+RUN sudo certbot --non-interactive --email ian.brennan@icloud.com --agree-tos --nginx -d ian-brennan.com -d www.ian-brennan.com
+
