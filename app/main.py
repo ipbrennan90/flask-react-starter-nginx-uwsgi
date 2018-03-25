@@ -9,10 +9,6 @@ app = Flask(__name__, static_folder="../static/dist", template_folder="../static
 def index(path):
     return render_template("index.html")
 
-@app.route("/resume")
-def resume():
-    return "Hello this is the resume page yea"
-
 
 if __name__ == "__main__":
     # Only for debugging while developing
