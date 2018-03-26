@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { Home, Resume } from '../../components'
-import './style.43css'
+import './style.css'
 
 export default class App extends Component {
   render() {
