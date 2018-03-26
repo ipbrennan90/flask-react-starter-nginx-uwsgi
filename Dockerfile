@@ -1,4 +1,6 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.6
+ENV LISTEN_PORT 443
+EXPOSE 443
 COPY ./www.ian-brennan.com.conf /etc/nginx/conf.d
 COPY ./app /app
 WORKDIR /static
